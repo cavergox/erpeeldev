@@ -24,7 +24,7 @@
       <?php endif;?>
 
       <?php if(isset($error)):?>
-        <div class="alert alert-warning fade in">
+        <div class="alert alert-danger fade in">
           <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
           <strong>Oppss !</strong> 
           <?php if (isset($error['username'])): ?>

@@ -112,6 +112,7 @@
 <script src="<?php echo base_url();?>assets/plugins/data-tables/jquery.dataTables.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/data-tables/dynamic_table_init.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/validation/parsley.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/ckeditor/ckeditor.js"></script>
 <script type="text/javascript"  src="<?php echo base_url();?>assets/plugins/toggle-switch/toggles.min.js"></script>
 
 <script>
