@@ -19,23 +19,32 @@
         <div class="alert alert-success fade in">
           <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
           <strong>Great :D</strong> 
-          Posted Success. 
+          Post Reply Success. 
         </div>
         <?php endif;?>
+        <?php if (isset($tmp_success_new)): ?>
+        <div class="alert alert-success fade in">
+          <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+          <strong>Good :D</strong> 
+          New Thread Posted. 
+        </div>
+        <?php endif; ?>
         <div class="row">
           <!--\\\\\\\ row  start \\\\\\-->
-          <div class="col-md-12">
-            <section class="panel default blue_border vertical_border h1">
-              <div class="task-header red_task"><?php echo $thread->title;?></div>
+          <div class="col-md-9">
+            <section class="panel blue_border horizontal_border_2">
+              <div class="task-header red_task">
+              <div class="pull-left">
+              <p>
+              <img src="<?php echo base_url()?>assets/images/hd-b.png" />
+              </p>
+              </div>
+              <?php echo $thread->title;?>
+              </div>
                 <div class="row task_inner inner_padding">
-                  <div class="col-md-2">
-                    <p><img src="<?php echo base_url()?>assets/images/hd-b.png" /></p>
-                  </div>
                   <div class="col-md-9">
-                    <p align="justify">
                       <?php echo $thread->content;?>
-                    </p>
-                    </div>
+                  </div>
               </div>
               <div class="task-footer">
               <label class="pull-left">
@@ -55,7 +64,7 @@
               
           <div class="row">
           <!--\\\\\\\ row  start \\\\\\-->
-          <div class="col-md-12">
+          <div class="col-md-9">
             <?php foreach($posts as $post):?>
             <section class="panel default h1">
               <div class="row task_inner inner_padding">
@@ -74,7 +83,7 @@
           </div>
           </div>
         <!--\\\\\\\ row  end \\\\\\-->   
-
+        <div class="col-md-8">
           <section class="panel default h1">
           <div class="row">
             <div class="col-md-12">
@@ -84,11 +93,11 @@
                     <form action="#" method="POST" class="form-horizontal">
                       <div class="form-group">
                         <label class="col-sm-2 col-sm-2">Reply Thread</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-12">
                           <input type="hidden" name="row[thread_id]" value="<?php echo $thread->id_thread;?>">
                           <input type="hidden" name="row[user_id]" value="1">
                           <input type="hidden" name="row[date_add]" value="<?php echo date('Y-m-d H:i:s');?>">
-                          <textarea class="form-control ckeditor" name="row[post]" rows="2"></textarea>
+                          <textarea class="form-control ckeditor" name="row[post]" rows="3"></textarea>
                         </div>
                       </div>
                       <button class="btn btn-primary" name="btnAdd" type="submit">Reply</button>
@@ -98,9 +107,8 @@
               </div><!--/block-web--> 
             </div><!--/col-md-12-->
           </div><!--/row--> 
-          </section>   
-         
-
+          </section> 
+          </div>   
   </div>
   <!--\\\\\\\ container  end \\\\\\-->
 </div>

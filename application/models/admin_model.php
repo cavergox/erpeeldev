@@ -4,6 +4,7 @@ class Admin_model extends CI_Model {
 	public $error		= array();
 	public $error_count	= 0;
 	public $data		= array();
+	
 
 	public function __construct()
 	{

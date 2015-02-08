@@ -63,7 +63,7 @@ Class User_model extends CI_Model{
 		}
 	}
 
-	public function user_add()
+	public function user_create()
 	{
 		$row = $this->input->post('row');
 		// check username

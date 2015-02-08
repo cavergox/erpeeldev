@@ -4,6 +4,8 @@ class Admin extends CI_Controller{
 	public $data		= array();
 	public $page_config	= array();
 
+
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -11,6 +13,7 @@ class Admin extends CI_Controller{
 		$this->load->model('user_model');
 		$this->load->model('admin_model');
 		$this->user_model->check_rule();
+
 
 		if(!$this->session->userdata('rpl_user_id')){
 			redirect('user/index');
@@ -72,20 +75,18 @@ class Admin extends CI_Controller{
 		$this->load->view('layout/footer');
 	}
 
-	public function user_add()
+	public function user_create()
 	{
 		if($this->input->server('REQUEST_METHOD') === 'POST')
 		{
-			$this->user_model->user_add();
+			$this->user_model->user_create();
 			if($this->user_model->error_count != 0){
 				$this->data['error'] = $this->user_model->error;
 			} else {
 				$this->session->set_userdata('tmp_success',1);
 				redirect('admin/user_add');
 			}
-
 		}
-
 		$tmp_success = $this->session->userdata('tmp_success',1);
 		if($tmp_success != NULL){
 			// new user created
@@ -99,33 +100,6 @@ class Admin extends CI_Controller{
 		$this->load->view('layout/footer');
 	}
 
-	public function user_edit($user_id)
-	{
-		if($this->input->server('REQUEST_METHOD') === 'POST')
-		{
-			$this->user_model->user_edit();
-			if($this->user_model->error_count != 0){
-				$this->data['error'] = $this->user_model->error;				
-			} else {
-				$this->session->set_userdata('tmp_success',1);
-				redirect('admin/user_view');
-			}
-		}
-
-		$tmp_success = $this->session->userdata('tmp_success',1);
-		if($tmp_success != NULL){
-			$this->session->unset_userdata('tmp_success');
-			$this->data['tmp_success'] = 1;
-		}
-		$this->db->order_by('rule','ASC');
-		$this->data['rules'] = $this->db->get('rpl_rule')->result();
-		$this->data['user'] = $this->db->get_where('rpl_users',array('id_user' => $user_id))->row();
-		$this->data['title'] = 'Edit User - ErpeelDev';
-		$this->load->view('layout/header',$this->data);
-		$this->load->view('admin/user_edit');
-		$this->load->view('layout/footer');
-	}
-
 	public function user_delete($user_id)
 	{
 		$this->db->delete('rpl_users',array('id_user' => $user_id));
@@ -133,7 +107,7 @@ class Admin extends CI_Controller{
 		redirect('admin/user_view');
 	}
 
-	public function category_add()
+	public function category_create()
 	{
 		if($this->input->server('REQUEST_METHOD') === 'POST')
 		{
@@ -142,7 +116,7 @@ class Admin extends CI_Controller{
 				$this->data['error'] = $this->category_model->error;
 			} else {
 				$this->session->set_userdata('tmp_success',1);
-				redirect('admin/category_add');
+				redirect('admin/category_create');
 			}
 		}
 
@@ -151,11 +125,11 @@ class Admin extends CI_Controller{
 			$this->session->unset_userdata('tmp_success');
 			$this->data['tmp_success'] = 1;
 		}
-
+		$this->data['navigations'] = $this->category_model->category_get_parent();
 		$this->data['categories'] = $this->category_model->category_get_all();
 		$this->data['title'] = 'Add Category - ErpeelDev ';
 		$this->load->view('layout/header',$this->data);
-		$this->load->view('admin/category_add');
+		$this->load->view('admin/category_create');
 		$this->load->view('layout/footer');
 	}
 
@@ -166,6 +140,7 @@ class Admin extends CI_Controller{
 			$this->session->unset_userdata('tmp_success_del');
 			$this->data['tmp_success_del'] = 1;
 		}
+		$this->data['navigations'] = $this->category_model->category_get_parent();
 		$this->data['categories'] = $this->category_model->category_get_all();
 		$this->data['title'] = 'View Category - ErpeelDev ';
 		$this->load->view('layout/header',$this->data);
@@ -190,6 +165,7 @@ class Admin extends CI_Controller{
 			$this->session->unset_userdata('tmp_success');
 			$this->data['tmp_success'] =1 ;
 		}
+		$this->data['navigations'] = $this->category_model->category_get_parent();
 		$this->data['category'] = $this->db->get_where('rpl_category',array('id_category' => $category_id))->row();
 		$this->data['categories'] = $this->category_model->category_get_all();
 		$this->data['title'] = 'Edit Category - ErpeelDev ';

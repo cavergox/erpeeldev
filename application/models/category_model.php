@@ -5,6 +5,7 @@ class Category_Model extends CI_Model{
 	public $error = array();
 	public $error_count = 0;
 	public $data = array();
+	public $fields		= array();
 
 	public function __construct()
 	{
@@ -14,21 +15,17 @@ class Category_Model extends CI_Model{
 	public function category_create()
 	{
 		$row = $this->input->post('row');
-
+		$this->fields = $row;
 		// check name
 		$check_category = $this->db->get_where('rpl_category',array('name'=>$row['name']))->num_rows();
 		if($check_category > 0){
 			$this->error['name'] = 'Category "'.$row['name'].'" already used';
 		}
 
-		// check url-friendly
-		$check_url = $this->db->get_where('rpl_category',array('url'=>$row['url']))->num_rows();
-		if($check_url > 0){
-			$this->error['url'] = 'Url "'.$row['url'].'" already used';
-		}
-
 		if(count($this->error) == 0)
 		{
+			$this->load->helper('inflector');
+			$row['url'] = underscore($row['name']);
 			$this->db->insert('rpl_category',$row);
 		} else {
 			$this->error_count = count($this->error);
@@ -123,5 +120,13 @@ class Category_Model extends CI_Model{
 			$this->category_get_all_parent($row['parent_id'],$counter);
 		}
 		return array_reverse($this->data);
+ 	}
+
+ 	public function category_get_parent()
+ 	{
+ 		$sql = "SELECT * FROM rpl_category 
+		WHERE parent_id = 0
+		ORDER BY id_category";
+		return $this->db->query($sql)->result();
  	}
 }

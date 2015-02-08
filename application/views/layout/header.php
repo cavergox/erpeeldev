@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $title;?></title>
-<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<META NAME="ErpeelDev" CONTENT="ErpeelDev">
 <!-- required css  -->
 <link href="<?php echo base_url();?>assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -14,7 +14,9 @@
 <link href="<?php echo base_url();?>assets/plugins/data-tables/DT_bootstrap.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/plugins/advanced-datatable/css/demo_table.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/plugins/advanced-datatable/css/demo_page.css" rel="stylesheet">
-
+<link href="<?php echo base_url();?>assets/plugins/map/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url();?>assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css" rel="stylesheet">
+<link href="<?php echo base_url();?>assets/plugins/dropzone/dropzone.css" rel="stylesheet">
 
 </head>
 <body class="light_theme  fixed_header left_nav_fixed">
@@ -31,22 +33,11 @@
     <div class="header_top_bar">
       <!--\\\\\\\ header top bar start \\\\\\-->
       <a href="javascript:void(0);" class="menutoggle"> <i class="fa fa-bars"></i> </a>
-      <!-- <div class="top_left">
-        <div class="top_left_menu">
-          <ul>
-            <li> <a href="javascript:void(0);"> <i class="fa fa-repeat"></i> </a> </li>
-            <li> <a href="javascript:void(0);"> <i class="fa fa-th-large"></i> </a> </li>
-          </ul>
-        </div>
-      </div> -->
-      <a href="javascript:void(0);" class="add_user" data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus-square"></i> <span> New Thread</span> </a>
       <div class="top_right_bar">
         <div class="user_admin dropdown"> <a href="javascript:void(0);" data-toggle="dropdown"><img src="<?php echo base_url();?>assets/images/user.png" /><span class="user_adminname"><?php echo $this->session->userdata('rpl_username');?></span> <b class="caret"></b> </a>
           <ul class="dropdown-menu">
             <div class="top_pointer"></div>
-            <li> <a href="profile.html"><i class="fa fa-user"></i> Profile</a> </li>
-            <li> <a href="help.html"><i class="fa fa-question-circle"></i> Help</a> </li>
-            <li> <a href="settings.html"><i class="fa fa-cog"></i> Setting </a></li>
+            <li> <a href="<?php echo site_url('user/user_edit').'/'.$this->session->userdata('rpl_user_id');?>"><i class="fa fa-user"></i> Profile</a> </li>
             <li> <a href="<?php echo site_url('user/logout');?>"><i class="fa fa-power-off"></i> Logout</a> </li>
           </ul>
         </div>
@@ -75,11 +66,9 @@
               </ul>
           </li>
           <?php endif;?>
-          <li <?php if($this->uri->segment(3) == 'lounge') { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo base_url('');?>thread/category/lounge"><i class="fa fa-coffee"></i> Lounge </span> </a></li>
-          <li <?php if($this->uri->segment(3) == 'discuss') { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo base_url();?>thread/category/discuss"><i class="fa fa-users"></i> Discuss  </a></li>
-          <li <?php if($this->uri->segment(3) == 'stage') { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo site_url('thread/category/stage');?>"> <i class="fa fa-th-large"></i> Class</a></li>
-          <li <?php if($this->uri->segment(3) == 'project') { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo site_url('#');?>"> <i class="fa fa-stack-overflow"></i> Project</span> </a></li>
-          <li <?php if($this->uri->segment(3) == 'library') { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo site_url('thread/category/library');?>"> <i class="fa fa-book"></i> Library</span> </a></li>
+          <?php foreach($navigations as $nav):?>
+          <li <?php if($this->uri->segment(3) == $nav->url) { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo base_url('').'thread/category/'.$nav->url;?>"><i class="fa <?php echo $nav->icon;?>"></i> <?php echo $nav->name;?> </span> </a></li>
+          <?php endforeach;?>
         </ul>
       </div>
     </div>

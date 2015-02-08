@@ -39,7 +39,7 @@
          <div class="porlets-content">
             <div class="table-responsive">
                 <div class="clearfix">
-                  <a class="btn btn-primary" href="<?php echo site_url('admin/category_add');?>">Add New <i class="fa fa-plus"></i></a>
+                  <a class="btn btn-primary" href="<?php echo site_url('admin/category_create');?>">Add New <i class="fa fa-plus"></i></a>
                 </div>
                 
                 <table  class="display table table-bordered table-striped" id="dynamic-table">

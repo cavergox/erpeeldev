@@ -1,23 +1,19 @@
 <?php
 
 class Thread extends CI_Controller{
-
+	public $data		= array();
+	public $page_config	= array();
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('thread_model');
 		$this->load->model('user_model');
+		$this->load->model('category_model');
 		$this->user_model->check_rule();
 
 		if(!$this->session->userdata('rpl_user_id')){
 			redirect('user/index');
-		}
-		/*
-		if($this->session->userdata('admin_area') == 0){
-			redirect('thread/category/lounge');
-		}
-		*/
-				
+		}		
 	}
 
 	public function set_pagination()
@@ -48,17 +44,41 @@ class Thread extends CI_Controller{
 		$this->page_config['base_url']		= site_url('thread/category/'.$category.'/');
 		$this->page_config['uri_segment'] 	= 4;
 		$this->page_config['total_rows']	= $this->thread_model->get_total_thread($category);
-		$this->page_config['per_page']		= 5;
+		$this->page_config['per_page']		= 10;
 		$this->set_pagination();
 		$this->pagination->initialize($this->page_config);
 		$this->data['type']		= 'index';
 		$this->data['page']		= $this->pagination->create_links();
-		$this->data['threads']	= $this->thread_model->get_thread($category,$start,$this->page_config['per_page']);
 		$this->data['title']	= ucfirst($category).' ErpeelDev';
 		$this->data['category'] = $category;
+		$this->data['total']	= $this->page_config['total_rows'];
+		$this->data['position'] = ($this->uri->segment(4)+1) ;
+		$this->data['position_last'] = ($this->data['position']);
+		$this->data['navigations'] = $this->category_model->category_get_parent();
+		if($category=='stage'){
+		$stage = 3;
+		$this->data['stages']	= $this->thread_model->get_stage_category($category,$start,$this->page_config['per_page'],$stage);
 		$this->load->view('layout/header',$this->data);
-		$this->load->view('thread/'.$category);
+		$this->load->view('thread/stage');
 		$this->load->view('layout/footer');
+		}
+		else if($category=='library'){
+		$this->load->view('layout/header',$this->data);
+		$this->load->view('thread/library');
+		$this->load->view('layout/footer');
+		}
+		else if($category=='studio'){
+		$this->load->view('layout/header',$this->data);
+		$this->load->view('thread/studio');
+		$this->load->view('layout/footer');
+		}
+		else {
+		$this->data['threads']	= $this->thread_model->get_thread($category,$start,$this->page_config['per_page']);
+		$this->load->view('layout/header',$this->data);
+		$this->load->view('thread/thread_list');
+		$this->load->view('layout/footer');
+		}
+		
 	}
 
 	public function talk($url, $start = 0)
@@ -91,9 +111,33 @@ class Thread extends CI_Controller{
 		$this->data['page'] = $this->pagination->create_links();
 		$this->data['thread'] = $thread;
 		$this->data['posts'] = $this->thread_model->get_post($thread->id_thread,$start,$this->page_config['per_page']);
+		$this->data['navigations'] = $this->category_model->category_get_parent();
 		$this->load->view('layout/header',$this->data);
 		$this->load->view('thread/thread_view');
 		$this->load->view('layout/footer');
+	}
+
+	public function thread_create()
+	{
+		if($this->input->server('REQUEST_METHOD') === 'POST'){
+			$this->thread_model->thread_create();
+			if($this->thread_model->error_count != 0){
+				$this->data['error'] = $this->thread_model->error();
+			} else {
+				$this->session->set_userdata('tmp_success_new',1);
+				redirect('thread/talk/'.underscore($this->thread_model->fields['title']));
+			}
+		}
+		$this->data['categories'] = $this->category_model->category_get_all();
+		$this->data['title'] = 'Post New Thread';
+		$this->load->view('layout/header',$this->data);
+		$this->load->view('thread/thread_create');
+		$this->load->view('layout/footer');
+	}
+
+	public function error404()
+	{
+		$this->load->view('layout/404error');
 	}
 
 }

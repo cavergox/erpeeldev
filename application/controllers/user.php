@@ -53,7 +53,7 @@ class User extends CI_Controller{
 		$this->data['user'] = $this->db->get_where('rpl_users',array('id_user' => $user_id))->row();
 		$this->data['title'] = 'Edit User - ErpeelDev';
 		$this->load->view('layout/header',$this->data);
-		$this->load->view('user/user_edit');
+		$this->load->view('admin/user_edit');
 		$this->load->view('layout/footer');
 	}
 

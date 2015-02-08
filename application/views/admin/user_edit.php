@@ -2,8 +2,8 @@
       <!--\\\\\\\ contentpanel start\\\\\\-->
       <div class="pull-left breadcrumb_admin clear_both">
         <div class="pull-left page_title theme_color">
-          <h1>Admin</h1>
-          <h2 class="">User</h2>
+          <h1>User</h1>
+          <h2 class="">Edit User</h2>
         </div>
         <div class="pull-right">
         </div>
@@ -22,13 +22,34 @@
           <?php endif; ?>  
         </div>
       <?php endif;?>
-
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-9">
           <div class="block-web">
             <div class="header">
               <div class="actions"> <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a><a class="close-down" href="#"><i class="fa fa-times"></i></a> </div>
-              <h3 class="content-header">Edit User</h3>
+              <h3 class="content-header">User Password</h3>
+            </div>
+            <div class="form-group">
+                  <label>Old Password</label>
+                  <input id="password" name="row[password]" type="password"  parsley-minlength="6" class="form-control">
+            </div><!--/form-group-->
+            <div class="form-group">
+                  <label>New Password</label>
+                  <input id="password" name="row[password]" type="password"  parsley-minlength="6" class="form-control">
+            </div><!--/form-group-->
+            <div class="form-group">
+                  <label>Re-Type Password</label>
+                  <input id="password" name="row[password]" type="password"  parsley-minlength="6" class="form-control">
+            </div><!--/form-group-->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="block-web">
+            <div class="header">
+              <div class="actions"> <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a><a class="close-down" href="#"><i class="fa fa-times"></i></a> </div>
+              <h3 class="content-header">User Profile</h3>
             </div>
             <div class="porlets-content">
               <form action="#" method="post" parsley-validate novalidate>
@@ -45,10 +66,7 @@
                   <input type="email" name="row[email]" parsley-trigger="change" required class="form-control" value="<?php echo $user->email;?>">
                 </div><!--/form-group-->
 
-                <div class="form-group">
-                  <label>Password</label>
-                  <input id="password" name="row[password]" type="password" placeholder="*Left blank if you not want change password" parsley-minlength="6" class="form-control">
-                </div><!--/form-group-->
+                
 
                 <div class="form-group">
                   <label>Name</label>
@@ -86,7 +104,7 @@
                     </select>
                 </div><!--/form-group-->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label>Status</label>
                     <select name="row[rule_id]" class="form-control">
                       <?php foreach($rules as $rule):?>

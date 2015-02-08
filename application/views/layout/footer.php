@@ -105,6 +105,22 @@
 <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/common-script.js"></script>
 <script src="<?php echo base_url();?>assets/js/jquery.slimscroll.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/map/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/map/jquery-jvectormap-world-mill-en.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/gallery/superbox.js"></script>
+<script>
+    $(function(){
+      $('#world-map').vectorMap();
+    });
+  </script>
+  <script>
+    $(function() {
+    
+      // Call SuperBox
+      $('.superbox').SuperBox();
+    
+    });
+    </script>
 <script src="<?php echo base_url();?>assets/js/jPushMenu.js"></script> 
 <script src="<?php echo base_url();?>assets/js/side-chats.js"></script>
 
@@ -113,7 +129,9 @@
 <script src="<?php echo base_url();?>assets/plugins/data-tables/dynamic_table_init.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/validation/parsley.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/ckeditor/ckeditor.js"></script>
-<script type="text/javascript"  src="<?php echo base_url();?>assets/plugins/toggle-switch/toggles.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/toggle-switch/toggles.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script> 
+<script type="text/javascript" src="<?php echo base_url();?>assets/plugins/dropzone/dropzone.min.js"></script>
 
 <script>
 /*==Porlets Actions==*/

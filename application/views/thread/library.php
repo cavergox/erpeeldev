@@ -14,7 +14,8 @@
       </div>
       <div class="container clear_both padding_fix">
         <!--\\\\\\\ container  start \\\\\\-->
-        <div class="file_Manager">
+        
+        <!-- <div class="file_Manager">
           <div class="letter_list">
               <ul>
                   <li><a href="#">a</a></li>
@@ -45,7 +46,7 @@
                     <li><a href="#">z</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-sm-9">
             <div class="row">
@@ -54,14 +55,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku1.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -71,14 +69,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku2.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -88,14 +83,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku2.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -105,14 +97,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku7.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -122,14 +111,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku6.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -139,14 +125,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku3.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -156,14 +139,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku8.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -173,14 +153,11 @@
               <a href="<?php echo site_url('perpustakaan/thread');?>"><img src="<?php echo base_url();?>assets/images/book/buku1.jpg" height="120px" width="120px"/></a>
                 <div class="contact_people_body">
                   <h5>Lorem Ipsum</h5>
-                    <span><i class="fa fa-map-marker"></i>Lorem Ipsum Dolor Sit Amet</span>
-                    <span><i class="fa fa-briefcase"></i>Computer Book Sit Amet</a></span>
+                    <span></i>Lorem Ipsum Dolor Sit Amet</span>
+                    <span></i>Computer Book Sit Amet</a></span>
                     <ul class="contact_social_list">
-                      <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                      <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                      <li><a href="#"><i class="fa fa-download"></i></a></li>
                     </ul>
                 </div>
             </div>

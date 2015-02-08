@@ -45,8 +45,8 @@
                   <input type="text" name="row[name]" parsley-trigger="change" required parsley-minlength="0" placeholder="Enter Category" class="form-control">
                 </div><!--/form-group-->
                 <div class="form-group">
-                  <label>Url Friendly</label>
-                  <input type="text" name="row[url]" parsley-trigger="change" required placeholder="Enter Category" class="form-control">
+                  <label>Icon</label>
+                  <input type="text" name="row[icon]" parsley-trigger="change" required parsley-minlength="0" placeholder="Enter Icon" class="form-control">
                 </div><!--/form-group-->
                 <div class="form-group">
                   <label>Parent Category</label>
