@@ -57,6 +57,12 @@
                       <?php endforeach;?>  
                     </select>
                 </div><!--/form-group-->
+                <div class="form-group">
+                  <div id="croppic">
+                    <img src="<?php echo base_url();?>assets/images/superbox/superbox-full-1.jpg" />
+                  </div>
+                  <span class="btn" id="cropContainerHeaderButton">click here to try it</span>
+                  </div>  
                 
                 <button class="btn btn-primary" name="btnAdd" type="submit">Submit</button>
                 <button class="btn btn-default">Cancel</button>

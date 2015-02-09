@@ -46,9 +46,10 @@
                   <input type="text" name="row[title]" parsley-trigger="change" required parsley-minlength="0" placeholder="Title of this article" class="form-control">
                 </div><!--/form-group-->
                 <div class="form-group">
-                  <label>Reply Thread</label>
+                  <label>Content</label>
                       <textarea class="form-control ckeditor" name="row[content]" rows="3"></textarea>
                 </div>
+
                 <button class="btn btn-primary" name="btnAdd" type="submit">Submit</button>
                 <button class="btn btn-default">Cancel</button>
               </form>

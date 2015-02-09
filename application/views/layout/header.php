@@ -17,6 +17,7 @@
 <link href="<?php echo base_url();?>assets/plugins/map/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/plugins/dropzone/dropzone.css" rel="stylesheet">
+<link href="<?php echo base_url();?>assets/plugins/croppic/css/croppic.css" rel="stylesheet">
 
 </head>
 <body class="light_theme  fixed_header left_nav_fixed">
