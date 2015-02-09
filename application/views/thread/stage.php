@@ -24,7 +24,7 @@
             ?>
               <div class="col-xs-6 col-sm-4 col-md-3">
                 <div class="thumb">
-                  <a href="<?php echo site_url('thread/category/'.$stage->name);?>"><div class="thumb_image"><img src="<?php echo base_url().'assets/images/category/'.$stage->image;?>"/></div></a>
+                  <a href="<?php echo site_url('thread/category/'.$stage->id_category);?>"><div class="thumb_image"><img src="<?php echo base_url().'assets/images/category/'.$stage->image;?>"/></div></a>
                 </div>
               </div>
             <?php endforeach; ?>       

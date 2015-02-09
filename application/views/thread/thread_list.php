@@ -3,7 +3,7 @@
       <div class="pull-left breadcrumb_admin clear_both">
         <div class="pull-left page_title theme_color">
           <h1>ErpeelDev</h1>
-          <h2 class="">Lounge</h2>
+          <h2 class=""><?php echo $category->name;?></h2>
         </div>
         <div class="pull-right">
           <ol class="breadcrumb">
@@ -15,28 +15,23 @@
       </div>
       <div class="container clear_both padding_fix">
         <!--\\\\\\\ container  start \\\\\\-->
-        <div class="task_bar clearfix">
-        </div>
         <div class="row">
           <!--\\\\\\\ row  start \\\\\\-->
           <div class="col-sm-9 col-lg-9">
           <div class="block-web">
-
-          <div class="pull-left">
-            <input name="" type="text" placeholder=" Search..." class="task_form"/>
-            <button class="btn btn-primary btn-icon" type="button"><i class="fa fa-search"></i> </button>
-          </div>
-
-          <div class="pull-right">
-            <a href="<?php echo site_url('thread/thread_create');?>" class="btn btn-primary">Post New Thread </a>
-          </div>
+           <tr>
+            <td>
+            <p class="pull-left"><input name="" type="text" placeholder=" Search..." class="task_form"/>
+            <button class="btn btn-primary btn-icon" type="button"><i class="fa fa-search"></i> </button></p> 
+            <p class="pull-right"><a href="<?php echo site_url('thread/thread_create/'.$this->uri->segment(3));?>" class="btn btn-primary">Post New Thread </a></p></td>
+            </tr> 
             <div class="table-responsive">
               <table class="table table-email">
                 <tbody>
                 <?php foreach($threads as $thread):?>
                   <tr>
                   
-                    <td><a class="pull-left" href="#"> <img class="media-object" src="<?php echo base_url();?>assets/images/photos/user1.jpg" alt=""> </a></td>
+                    <td><a class="pull-left" href="#"> <img width="50%" height="50%" class="media-object" src="<?php echo base_url();?>assets/images/photos/user1.jpg" alt=""> </a></td>
                     <td></td>
                     <td>
                     <div class="media"> 
@@ -56,18 +51,22 @@
               </table>
             </div><!-- /table-responsive --> 
           </div><!--/ block-web -->
-        <div clas="block-web">
-          <div class="pull-right">
-              <ol class="pagination text-center pull-right"><?php echo $page; ?></ol>
-            </div> 
-            <div class="pull-left">
-            <strong>Lounge</strong>
-            <p class="text-muted"><?php echo 'Showing '.$position.' - '.$position_last.' of '.$total;?> messages</p>
-            </div>
+          </div>
         </div>
-        </div><!-- /col-sm-9 --> 
 
+          <div class="row">
+            <div class="col-sm-9 col-lg-9">
+              <div class="block-web">
+              <tr>
+                <td>
+                  <p class="pull-left"><?php echo 'Page '.$current.' of '.$total;?> messages</p> 
+                  <p class="pull-right"><ol class="pagination text-center pull-right"><?php echo $page; ?></ol></p>
+                </td>
+              </tr> 
+            </div>
+         </div><!-- /col-sm-9 --> 
         </div>
+       
         <!--\\\\\\\ row  end \\\\\\-->
       </div>
       <!--\\\\\\\ container  end \\\\\\-->

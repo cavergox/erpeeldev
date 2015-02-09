@@ -19,6 +19,13 @@
           Category was updated. 
         </div>
       <?php endif;?>
+      <?php if(isset($tmp_success_del)):?>
+        <div class="alert alert-success fade in">
+          <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+          <strong>Great :D</strong> 
+          Category was deleted. 
+        </div>
+      <?php endif;?>
       <?php if(isset($error)):?>
         <?php if($error['name']):?>
         <div>- <?php echo $error['name']; ?></div>

@@ -6,6 +6,7 @@ class Admin extends CI_Controller{
 
 
 
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -13,7 +14,9 @@ class Admin extends CI_Controller{
 		$this->load->model('user_model');
 		$this->load->model('admin_model');
 		$this->user_model->check_rule();
-
+		$this->load->library('image_lib');
+		// load nav bar left
+		$this->data['navigations'] = $this->category_model->category_get_parent();
 
 		if(!$this->session->userdata('rpl_user_id')){
 			redirect('user/index');
@@ -111,6 +114,7 @@ class Admin extends CI_Controller{
 	{
 		if($this->input->server('REQUEST_METHOD') === 'POST')
 		{
+
 			$this->category_model->category_create();
 			if($this->category_model->error_count != 0){
 				$this->data['error'] = $this->category_model->error;
@@ -125,7 +129,7 @@ class Admin extends CI_Controller{
 			$this->session->unset_userdata('tmp_success');
 			$this->data['tmp_success'] = 1;
 		}
-		$this->data['navigations'] = $this->category_model->category_get_parent();
+		
 		$this->data['categories'] = $this->category_model->category_get_all();
 		$this->data['title'] = 'Add Category - ErpeelDev ';
 		$this->load->view('layout/header',$this->data);
@@ -140,7 +144,7 @@ class Admin extends CI_Controller{
 			$this->session->unset_userdata('tmp_success_del');
 			$this->data['tmp_success_del'] = 1;
 		}
-		$this->data['navigations'] = $this->category_model->category_get_parent();
+		
 		$this->data['categories'] = $this->category_model->category_get_all();
 		$this->data['title'] = 'View Category - ErpeelDev ';
 		$this->load->view('layout/header',$this->data);
@@ -165,7 +169,7 @@ class Admin extends CI_Controller{
 			$this->session->unset_userdata('tmp_success');
 			$this->data['tmp_success'] =1 ;
 		}
-		$this->data['navigations'] = $this->category_model->category_get_parent();
+		
 		$this->data['category'] = $this->db->get_where('rpl_category',array('id_category' => $category_id))->row();
 		$this->data['categories'] = $this->category_model->category_get_all();
 		$this->data['title'] = 'Edit Category - ErpeelDev ';
@@ -176,7 +180,7 @@ class Admin extends CI_Controller{
 
 	public function category_delete($category_id)
 	{
-		$this->db->delete('tbl_category', array('id_category' => $category_id));
+		$this->db->delete('rpl_category', array('id_category' => $category_id));
 		$this->session->set_userdata('tmp_success_del',1);
 		redirect('admin/category_view');
 	}

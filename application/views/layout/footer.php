@@ -136,42 +136,6 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/croppic/croppic.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/plugins/croppic/croppic.js"></script>
 <script>
-    var croppicHeaderOptions = {
-        uploadUrl:'img_save_to_file.php',
-        cropData:{
-          "dummyData":1,
-          "dummyData2":"asdas"
-        },
-        cropUrl:'img_crop_to_file.php',
-        customUploadButtonId:'cropContainerHeaderButton',
-        modal:false,
-        loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> ',
-        onBeforeImgUpload: function(){ console.log('onBeforeImgUpload') },
-        onAfterImgUpload: function(){ console.log('onAfterImgUpload') },
-        onImgDrag: function(){ console.log('onImgDrag') },
-        onImgZoom: function(){ console.log('onImgZoom') },
-        onBeforeImgCrop: function(){ console.log('onBeforeImgCrop') },
-        onAfterImgCrop:function(){ console.log('onAfterImgCrop') },
-        onError:function(errormessage){ console.log('onError:'+errormessage) }
-    } 
-    var croppic = new Croppic('croppic', croppicHeaderOptions);
-    
-    
-    var croppicContainerModalOptions = {
-        uploadUrl:'img_save_to_file.php',
-        cropUrl:'img_crop_to_file.php',
-        modal:true,
-        imgEyecandyOpacity:0.4,
-        loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> '
-    }
-    var cropContainerModal = new Croppic('cropContainerModal', croppicContainerModalOptions);
-    
-  
-    
-  </script>
-
-
-<script>
 /*==Porlets Actions==*/
     $('.minimize').click(function(e){
       var h = $(this).parents(".header");
@@ -209,6 +173,26 @@
       e.preventDefault();
     });
 </script>
-
+<script>
+    var croppicHeaderOptions = {
+        uploadUrl:'<?php echo site_url('upload/image_upload'); ?>',
+        cropData:{
+          "dummyData":1,
+          "dummyData2":"asdas"
+        },
+        cropUrl:'<?php echo site_url('upload/image_crop'); ?>',
+        customUploadButtonId:'cropContainerHeaderButton',
+        modal:false,
+        loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> ',
+        onBeforeImgUpload: function(){ console.log('onBeforeImgUpload') },
+        onAfterImgUpload: function(){ console.log('onAfterImgUpload') },
+        onImgDrag: function(){ console.log('onImgDrag') },
+        onImgZoom: function(){ console.log('onImgZoom') },
+        onBeforeImgCrop: function(){ console.log('onBeforeImgCrop') },
+        onAfterImgCrop:function(){ console.log('onAfterImgCrop') },
+        onError:function(errormessage){ console.log('onError:'+errormessage) }
+    } 
+    var croppic = new Croppic('croppic', croppicHeaderOptions);
+</script>
 </body>
 </html>

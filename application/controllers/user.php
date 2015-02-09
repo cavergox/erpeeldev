@@ -6,7 +6,9 @@ class User extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('category_model');
 		$this->user_model->check_rule();
+		$this->data['navigations'] = $this->category_model->category_get_parent();
 	}
 
 	public function index()

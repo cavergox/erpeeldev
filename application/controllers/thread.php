@@ -10,6 +10,8 @@ class Thread extends CI_Controller{
 		$this->load->model('user_model');
 		$this->load->model('category_model');
 		$this->user_model->check_rule();
+		// navigation left
+		$this->data['navigations'] = $this->category_model->category_get_parent();
 
 		if(!$this->session->userdata('rpl_user_id')){
 			redirect('user/index');
@@ -49,30 +51,37 @@ class Thread extends CI_Controller{
 		$this->pagination->initialize($this->page_config);
 		$this->data['type']		= 'index';
 		$this->data['page']		= $this->pagination->create_links();
-		$this->data['title']	= ucfirst($category).' ErpeelDev';
+		$this->data['title']	= ' ErpeelDev';
 		$this->data['category'] = $category;
 		$this->data['total']	= $this->page_config['total_rows'];
-		$this->data['position'] = ($this->uri->segment(4)+1) ;
-		$this->data['position_last'] = ($this->data['position']);
-		$this->data['navigations'] = $this->category_model->category_get_parent();
-		if($category=='stage'){
+		$this->data['current']  = $this->page_config['total_rows']/10;
+		// stage layout
+		if($category=='3'){
 		$stage = 3;
 		$this->data['stages']	= $this->thread_model->get_stage_category($category,$start,$this->page_config['per_page'],$stage);
 		$this->load->view('layout/header',$this->data);
 		$this->load->view('thread/stage');
 		$this->load->view('layout/footer');
 		}
-		else if($category=='library'){
+		// library layout
+		else if($category=='5'){
 		$this->load->view('layout/header',$this->data);
 		$this->load->view('thread/library');
 		$this->load->view('layout/footer');
 		}
-		else if($category=='studio'){
+		// studio layout
+		else if($category=='10'){
 		$this->load->view('layout/header',$this->data);
 		$this->load->view('thread/studio');
 		$this->load->view('layout/footer');
 		}
 		else {
+
+		// category variabel for breadcumb
+		$categories = $this->db->get_where('rpl_category',array('id_category'=>$cat))->row();
+
+		// load layout 
+		$this->data['category'] = $categories;
 		$this->data['threads']	= $this->thread_model->get_thread($category,$start,$this->page_config['per_page']);
 		$this->load->view('layout/header',$this->data);
 		$this->load->view('thread/thread_list');
@@ -83,15 +92,7 @@ class Thread extends CI_Controller{
 
 	public function talk($url, $start = 0)
 	{
-		if($this->input->server('REQUEST_METHOD') === 'POST'){
-			$this->thread_model->reply();
-			if($this->thread_model->error_count != 0){
-				$this->data['error'] = $this->thread_model->error;
-			} else {
-				$this->session->set_userdata('tmp_success',1);
-				redirect('thread/talk/'.$url.'/');
-			}
-		}
+		// notification
 		$tmp_success = $this->session->userdata('tmp_success');
 		if($tmp_success != NULL){
 			// notification for new post on thread
@@ -99,6 +100,7 @@ class Thread extends CI_Controller{
 			$this->data['tmp_success'] = 1;
 		}
 
+		// load thread for pagination
 		$thread = $this->db->get_where('rpl_thread',array('url_title'=>$url))->row();
 		$this->load->library('pagination');
 		$this->page_config['base_url'] = site_url('thread/talk/'.$url.'/');
@@ -107,14 +109,35 @@ class Thread extends CI_Controller{
 		$this->page_config['per_page'] = 5;
 		$this->set_pagination();
 		$this->pagination->initialize($this->page_config);
-		$this->data['title'] = $this->uri->segment(3).' - ErpeelDev';
+
+		// load data layout
+		$this->data['title'] = humanize($this->uri->segment(3)).' - ErpeelDev';
 		$this->data['page'] = $this->pagination->create_links();
-		$this->data['thread'] = $thread;
+		$this->data['threads'] = $this->thread_model->get_thread_talk($url);
 		$this->data['posts'] = $this->thread_model->get_post($thread->id_thread,$start,$this->page_config['per_page']);
-		$this->data['navigations'] = $this->category_model->category_get_parent();
+		
+		// load layout
 		$this->load->view('layout/header',$this->data);
 		$this->load->view('thread/thread_view');
 		$this->load->view('layout/footer');
+	}
+
+	public function reply($url)
+	{
+			if($this->input->server('REQUEST_METHOD') === 'POST'){
+			$this->thread_model->reply();
+			if($this->thread_model->error_count != 0){
+				$this->data['error'] = $this->thread_model->error;
+			} else {
+				$this->session->set_userdata('tmp_success',1);
+				redirect('thread/talk/'.$url.'/');
+			}
+			}
+			$thread = $this->db->get_where('rpl_thread',array('url_title'=>$url))->row();
+			$this->data['thread'] = $thread;
+			$this->load->view('layout/header',$this->data);
+			$this->load->view('thread/thread_reply');
+			$this->load->view('layout/footer');
 	}
 
 	public function thread_create()

@@ -32,7 +32,7 @@
       <?php endif;?>
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
           <div class="block-web">
             <div class="header">
               <div class="actions"> <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a><a class="close-down" href="#"><i class="fa fa-times"></i></a> </div>
@@ -58,11 +58,9 @@
                     </select>
                 </div><!--/form-group-->
                 <div class="form-group">
-                  <div id="croppic">
-                    <img src="<?php echo base_url();?>assets/images/superbox/superbox-full-1.jpg" />
-                  </div>
-                  <span class="btn" id="cropContainerHeaderButton">click here to try it</span>
-                  </div>  
+                  <label>Category Picture</label>
+                  <input type="File" name="row[image]" class="form-control">
+                </div><!--/form-group-->  
                 
                 <button class="btn btn-primary" name="btnAdd" type="submit">Submit</button>
                 <button class="btn btn-default">Cancel</button>

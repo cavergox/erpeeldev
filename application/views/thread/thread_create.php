@@ -33,17 +33,13 @@
             <div class="porlets-content">
               <form action="#" method="post" parsley-validate novalidate>
                 <div class="form-group">
-                  <label>Category</label>
-                    <select name="row[category_id]" class="form-control" placeholder="Years Grade">
-                      <option value ="0">- None -</option>
-                      <?php foreach($categories as $category): ?>
-                      <option value="<?php echo $category['id_category'];?>"><?php echo $category['name'];?></option>
-                      <?php endforeach;?>  
-                    </select>
+                  <label>Title</label>
+                  <input type="hidden" name="row[category_id]" value="<?php echo $this->uri->segment(3);?>" class="form-control">
+                  <input type="text" name="row[title]" parsley-trigger="change" required parsley-minlength="0" placeholder="Title of this article" class="form-control">
                 </div><!--/form-group-->
                 <div class="form-group">
-                  <label>Title</label>
-                  <input type="text" name="row[title]" parsley-trigger="change" required parsley-minlength="0" placeholder="Title of this article" class="form-control">
+                  <label>Description Title</label>
+                  <input type="text" name="row[desc_title]" parsley-trigger="change" required parsley-minlength="0" placeholder="Title of this article" class="form-control">
                 </div><!--/form-group-->
                 <div class="form-group">
                   <label>Content</label>

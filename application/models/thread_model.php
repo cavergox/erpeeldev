@@ -24,7 +24,7 @@ class Thread_model extends CI_Model {
 	{
 		$sql = "SELECT a.category_id  
 				FROM rpl_thread a,rpl_category b
-				WHERE a.category_id = b.id_category AND b.name = '".$category."'";
+				WHERE a.category_id = b.id_category AND b.id_category = '".$category."'";
 		return $this->db->query($sql)->num_rows();
 	}
 
@@ -32,7 +32,7 @@ class Thread_model extends CI_Model {
 	{
 		$sql = "SELECT a.*, b.name as category_name, b.url as category_url  
 				FROM rpl_thread a,rpl_category b
-				WHERE a.category_id = b.id_category AND b.name = '".$category."'
+				WHERE a.category_id = b.id_category AND b.id_category = '".$category."'
 				ORDER BY date_last_post 
 				DESC LIMIT ".$start.",".$limit;
 		return $this->db->query($sql)->result();	
@@ -44,6 +44,16 @@ class Thread_model extends CI_Model {
 		WHERE parent_id = ".$stage."
 		ORDER BY name
 		DESC LIMIT ".$start.",".$limit;
+		return $this->db->query($sql)->result();
+	}
+
+	// model talk / interaction forum
+
+	public function get_thread_talk($url)
+	{
+		$sql = "SELECT a.*, b.name as username,c.name
+				FROM rpl_thread a,rpl_users b,rpl_category c
+				WHERE a.url_title = '".$url."' AND b.id_user = a.user_id AND a.category_id = c.id_category"; 
 		return $this->db->query($sql)->result();
 	}
 
@@ -87,7 +97,7 @@ class Thread_model extends CI_Model {
 
 		if(count($this->error) == 0){
 			// insert into rpl_thread;
-			$this->load->helper('inflector');
+			
 			$thread['url_title'] = underscore($thread['title']);
 			$thread['date_add'] = date("Y-m-d H:i:s");
 			$thread['date_last_post'] = date("Y-m-d H:i:s");

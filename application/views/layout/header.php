@@ -68,7 +68,7 @@
           </li>
           <?php endif;?>
           <?php foreach($navigations as $nav):?>
-          <li <?php if($this->uri->segment(3) == $nav->url) { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo base_url('').'thread/category/'.$nav->url;?>"><i class="fa <?php echo $nav->icon;?>"></i> <?php echo $nav->name;?> </span> </a></li>
+          <li <?php if($this->uri->segment(3) == $nav->id_category) { echo 'class="left_nav_active theme_border"';}?>><a href="<?php echo base_url('').'thread/category/'.$nav->id_category;?>"><i class="fa <?php echo $nav->icon;?>"></i> <?php echo $nav->name;?> </span> </a></li>
           <?php endforeach;?>
         </ul>
       </div>
