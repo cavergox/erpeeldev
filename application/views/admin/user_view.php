@@ -6,13 +6,6 @@
           <h2 class="">User</h2>
         </div>
         <div class="pull-right">
-          <!--
-          <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Forum</a></li>
-            <li class="active">Member Forum</li>
-          </ol>
-          -->
         </div>
       </div>
       <div class="container clear_both padding_fix">
@@ -39,7 +32,7 @@
          <div class="porlets-content">
             <div class="table-responsive">
                 <div class="clearfix">
-                  <a class="btn btn-primary" href="<?php echo site_url('admin/user_add');?>">Add New <i class="fa fa-plus"></i></a>
+                  <a class="btn btn-primary" href="<?php echo site_url('admin/user_create');?>">Add New <i class="fa fa-plus"></i></a>
                 </div>
                 
                 <table  class="display table table-bordered table-striped" id="dynamic-table">
@@ -56,8 +49,8 @@
                     <td><?php echo $no;?></td>
                     <td><?php echo $user->username;?></td>
                     <td class="center">
-                      <a href="<?php echo site_url('admin/user_edit').'/'.$user->id_user;?>" class="btn btn-success">View & Edit</a>
-                      <a href="#" class="btn btn-danger" onclick="return confirm('Are You Sure ? ')">Delete</a>
+                      <!-- <a href="<?php echo site_url('admin/user_edit').'/'.$user->id_user;?>" class="btn btn-success">View & Edit</a> -->
+                      <a href="<?php echo site_url('admin/user_delete').'/'.$user->id_user?>" class="btn btn-danger" onclick="return confirm('Are You Sure Delete This User ? ')">Delete</a>
                     </td>
                     </tr>
                     <?php $no++; endforeach; ?>

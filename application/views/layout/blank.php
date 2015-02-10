@@ -15,8 +15,6 @@
       </div>
       <div class="container clear_both padding_fix">
         <!--\\\\\\\ container  start \\\\\\-->
-        
-      
       </div>
       <!--\\\\\\\ container  end \\\\\\-->
     </div>
